@@ -1,0 +1,15 @@
+<% if @candidate %>
+
+<h1><%= @candidate.name %></h1>
+
+<ul>
+	<li>party: <%= @candidate.party %></li>
+	<li>age: <%= @candidate.age %></li>
+	<li>poltics: <%= @candidate.poltics %></li>
+</ul>
+
+<% else %>
+
+<h1>找不到資料!</h1>
+
+<% end %>

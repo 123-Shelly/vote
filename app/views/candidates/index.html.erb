@@ -1,0 +1,35 @@
+
+<!-- <%= flash[:notice] %> -->
+<h1>hello!</h1>
+
+<%= link_to 'Add Candidate', new_candidate_path %>
+
+<!-- <a href="/index/new">Add Candidates</a> -->
+
+<table>
+	<tr>
+		<td>votes</td>
+		<td>name</td>
+		<td>party</td>
+		<td>age</td>
+		<td>update</td>
+	</tr>
+
+	<% @candidates.each do |candidate| %> 
+			<tr>
+				<td><%= link_to '投票', vote_candidate_path(candidate.id), method: 'post' %></td>
+				<td><%= candidate.vote_logs.size %></td>
+				<td><a href="/candidate/<%= candidate.id %>"><%= candidate.name %></a></td>
+				<td><%= candidate.party %></td>
+				<td><%= candidate.age %></td>
+					
+				<td>
+						<%= link_to '更新', edit_candidate_path(candidate.id) %>
+					  <%= link_to '刪除', candidate_path(candidate.id), method: 'delete', data: {confirm: '確定刪除?'} %>
+		
+				</td>
+
+	    </tr>
+	<% end %>
+
+</table>
